@@ -13,7 +13,7 @@ vector<vector<int>> generateSubsets(vector<int>& arr) {
                 subset.push_back(arr[j]);
             }
         }
-        subsets.push_back(subset);
+        total_subsets.push_back(subset);
     }
 
     return total_subsets;
