@@ -6,7 +6,7 @@ Homework [08.10.2024]
 4. Find the no. of sub arrays with difference of max and min element in the sub array is less than or equals to k [ max(SA) - min(SA) <= k).
 5. 1st negative number in every window of size k.
 6. Variable windows : 
-      (i) Largest / Smallest subarray size where sum <= S  (or       sum >= S)
+      (i) Largest / Smallest subarray size where sum <= S  (or sum >= S)
      (ii) Largest subarray with K distinct characters.
     (iii) Length of largest subarray with no repeating characters.
     (iv) Minimum window substring.
