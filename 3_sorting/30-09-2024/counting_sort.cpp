@@ -1,24 +1,42 @@
-#include<bits/stdc++.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-    vector<int> arr{1,4,1,2,7,5,2};
+//  T.C = O( N + Range)
+//  S.C = O( N + Range + N)
+vector<int> countSort(vector<int>& inputArray)
+{
 
-    vector<int> freq(10,0);
-    for(int i:arr){
-        freq[i]++;
+    int N = inputArray.size();
+    int M = *max_element(inputArray.begin(), inputArray.end());
+   
+
+    vector<int> countArray(M + 1, 0);
+
+    for (int i = 0; i < N; i++)
+        countArray[inputArray[i]]++;
+
+    for (int i = 1; i <= M; i++)
+        countArray[i] += countArray[i - 1];
+
+    vector<int> outputArray(N);
+
+    for (int i = N - 1; i >= 0; i--){   // traversing the original array in reverse makes the sorting as stable sort 
+        outputArray[countArray[inputArray[i]] - 1]= inputArray[i];
+        countArray[inputArray[i]]--;
     }
-    for(int i=1;i<freq.size();i++){
-        freq[i] +=freq[i-1];
-    }
-    vector<int> result(arr.size());
-    for(int i = 9;i>=0;i--){
-        result[i] = freq[arr[i]]-1;
-        arr[i]--;
-    }
-    for(int i: result){
-        cout<<i;
-    }
+
+    return outputArray;
+}
+
+int main()
+
+{
+
+    vector<int> inputArray = {4,3,12,1,5,5,3,9,11,0,0,0};
+    vector<int> outputArray = countSort(inputArray);
+
+    for (int i = 0; i < inputArray.size(); i++)
+        cout << outputArray[i] << " ";
+
     return 0;
 }
