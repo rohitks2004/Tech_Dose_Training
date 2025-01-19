@@ -11,7 +11,7 @@ int mmi(int n){
         if(b&1){
             res = (res%mod * n%mod)%mod;
         }
-        b>>1;
+        b>>=1;
         n = (n%mod*n%mod)%mod;
     }
     return res%mod;
